@@ -1,14 +1,35 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import Signin from './src/screens/signin';
-
-
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Signin />
-    </View >
+      <Text>2222222</Text>
+      <View style={styles.linha}>
+
+        <TouchableOpacity style={styles.botao1}>
+          <Text> B1 </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.botao1}>
+          <Text> B2 </Text>
+        </TouchableOpacity>
+      </View>
+
+      <View style={styles.linha}>
+
+        <TouchableOpacity style={styles.botao1}>
+          <Text> B3 </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.botao1}>
+          <Text> B4 </Text>
+        </TouchableOpacity>
+      </View>
+
+      <Text>texto abaixo</Text>
+      <StatusBar style="auto" />
+    </View>
   );
 }
 
