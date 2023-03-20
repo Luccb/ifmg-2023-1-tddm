@@ -1,41 +1,39 @@
-import { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { ImageBackground, StyleSheet, Text, View, TextInput, TouchableOpacity, TouchableOpacityBase } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, TouchableOpacityBase } from 'react-native';
+import { ImageBackground } from 'react-native-web';
 
 export default function Signin() {
-  
-  const [step,setStep] = useState('');
+
+  cosnt [step,setStep] = useState('');
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
   
   function handleSubmit() {
-
+    console.log({email});
   }
-w
-  function changeForm() {
 
+  function changeForm() {
+    if (step === 0) {
+      setStep(1);
+    } else {
+      setStep(0);
+    }
   }
 
   return (
     <View style={styles.container} >
-        <Text style={styles.title}>TELA LOGIN</Text>
+        <Text style={styles.title}>asdasd login</Text>
         
         <View style={styles.form}>
 
           <Text style={styles.label}>Login</Text>
-          
-          <TextInput styles={styles.input} 
-            // placeholderTextColor="#999"
-            // placeholder="digite seu LOGIN ou email"
-            // keyboardType='email-address'
-             value={email} // ---------- VER__ERRO
-            // onChangeText={setEmail}
+          <TextInput styles={styles.input} placeholderTextColor="#999"
+            placeholder="digite seu LOGIN ou email"
+            keyboardType='email-address'
+            value={email}
+            onChangeText={setEmail}
           />
-
-
-
           <Text style={styles.label}>Pwd</Text>
-          
           <TextInput styles={styles.input} placeholderTextColor="#999"
             placeholder="digite sua senha"
             textSecurityEntry={true}
@@ -43,14 +41,18 @@ w
             value={password}
             onChangeText={setPassword}
           />
-
-          <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+          <TouchableOpacity style={styles.button} 
+            //</View>onPress={() => navigation.navigate('Auth')}
+            onPress={handleSubmit}
+            >
             <Text style={styles.buttonText}>ENTRAR</Text>
           </TouchableOpacity>
-
-          <TouchableOpacity>
-            <Text style={styles.label}>Esqueci minha senha</Text>
+          <TouchableOpacity  
+            //</View>onPress={() => navigation.navigate('Auth')}
+            >
+            <Text style={[styles.label, styles.obs]}>Esqueci minha senha</Text>
           </TouchableOpacity>
+
           
         </View>
     </View>
@@ -65,7 +67,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#00a',
     alignItems: 'center',
     justifyContent: 'center',
-    width: '100%',
   },
   title:    {
     color: 'white',
